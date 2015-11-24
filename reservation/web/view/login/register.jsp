@@ -10,7 +10,16 @@
 <head>
     <title></title>
 </head>
-<body>
 
+<% String error = (String) request.getAttribute("error"); %>
+<body>
+<h4>${error}</h4>
+<h3>请输入注册信息</h3><br>
+  <form action="/view/register.do">
+    姓名：<input type="text" name="name"/><br>
+    密码：<input type="text" name="password"/><br>
+    电话号码：<input type="text" name="telNumber"><br>
+    <input type="submit" value="register">
+  </form>
 </body>
 </html>

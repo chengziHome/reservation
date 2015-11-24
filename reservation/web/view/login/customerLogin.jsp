@@ -10,7 +10,6 @@
 <head>
     <title></title>
 </head>
-
 <% String error = (String) request.getAttribute("error"); %>
 <body>
 <h2>${error}</h2>
@@ -18,6 +17,7 @@
     姓名：<input type="text" name="name"/><br>
     密码：<input type="text" name="password"/><br>
     <input type="submit" value="login">
+    <a href="register.jsp">注册新用户</a>
   </form>
 </body>
 </html>

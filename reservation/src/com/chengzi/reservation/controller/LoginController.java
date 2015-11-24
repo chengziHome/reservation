@@ -1,5 +1,6 @@
 package com.chengzi.reservation.controller;
 
+import com.chengzi.reservation.bean.Customer;
 import com.chengzi.reservation.dao.BaseDao;
 import com.chengzi.reservation.util.HibernateUtil;
 import org.hibernate.HibernateException;
@@ -64,6 +65,18 @@ public class LoginController{
             e.printStackTrace();
             request.setAttribute("error","name or password is wrong!");
             return "login/customerLogin";
+        }
+    }
+
+    @RequestMapping("register.do")
+    public String register(HttpServletRequest request ,Customer customer){
+        try {
+            baseDao.add(customer);
+            return "customer/customer";
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("error","something wrong!");
+            return "login/register";
         }
     }
 
