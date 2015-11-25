@@ -48,9 +48,8 @@ public class TestTest {
     @Test
     public void testMain() throws Exception {
 
-        Customer customer = (Customer) baseDao.getById(Customer.class, 1);
-        Customer customer2 = (Customer) baseDao.getById(Customer.class, 2);
-        System.out.println("customer:"+customer+"customer2:"+customer2);
+        Meal meal = (Meal) baseDao.getById(Meal.class,2);
+        baseDao.delete(meal);
 
     }
 
