@@ -14,8 +14,6 @@
     <title></title>
 </head>
 
-<% List<Meal> list = (List<Meal>) request.getAttribute("meals"); %>
-
 <body>
 <form action="/view/admin/addMeal.do">
   菜品名称：<input type="text" name="name"/><br>

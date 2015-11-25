@@ -42,10 +42,8 @@ public class AdminOrderController {
         order.setDate(sf.format(date));
         baseDao.add(order);
 
-        Session session = new HibernateUtil().getSession();
         String hql = "from Order";
-        Query q = session.createQuery(hql);
-        List orders = q.list();
+        List orders = baseDao.list(hql);
         request.setAttribute("orders",orders);
         return "admin/order";
     }
@@ -66,10 +64,8 @@ public class AdminOrderController {
         order.setDate(sf.format(date));
         baseDao.update(order);
 
-        Session session = new HibernateUtil().getSession();
         String hql = "from Order";
-        Query q = session.createQuery(hql);
-        List orders = q.list();
+        List orders = baseDao.list(hql);
         request.setAttribute("orders",orders);
         return "admin/order";
     }
@@ -80,20 +76,17 @@ public class AdminOrderController {
         Order order= (Order) baseDao.getById(Order.class,id);
         baseDao.delete(order);
 
-        Session session = new HibernateUtil().getSession();
         String hql = "from Order";
-        Query q = session.createQuery(hql);
-        List orders = q.list();
+        List orders = baseDao.list(hql);
         request.setAttribute("orders",orders);
         return "admin/order";
     }
 
     @RequestMapping("admin/listOrder.do")
     public String list(HttpServletRequest request){
-        Session session = new HibernateUtil().getSession();
+
         String hql = "from Order";
-        Query q = session.createQuery(hql);
-        List orders = q.list();
+        List orders = baseDao.list(hql);
         request.setAttribute("orders",orders);
         return "admin/order";
     }

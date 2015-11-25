@@ -26,10 +26,9 @@ public class AdminMealController {
     @RequestMapping("admin/addMeal.do")
     public String add(HttpServletRequest request,Meal meal){
         baseDao.add(meal);
-        Session session = new HibernateUtil().getSession();
+
         String hql = "from Meal";
-        Query q = session.createQuery(hql);
-        List meals = q.list();
+        List meals = baseDao.list(hql);
         request.setAttribute("meals",meals);
         return "admin/meal";
     }
@@ -39,33 +38,26 @@ public class AdminMealController {
         Meal meal = (Meal) baseDao.getById(Meal.class,id);
         baseDao.delete(meal);
 
-        Session session = new HibernateUtil().getSession();
         String hql = "from Meal";
-        Query q = session.createQuery(hql);
-        List meals = q.list();
+        List meals = baseDao.list(hql);
         request.setAttribute("meals",meals);
-
         return "admin/meal";
     }
 
     @RequestMapping("admin/updateMeal.do")
     public String update(HttpServletRequest request,Meal meal){
         baseDao.update(meal);
-        Session session = new HibernateUtil().getSession();
+
         String hql = "from Meal";
-        Query q = session.createQuery(hql);
-        List meals = q.list();
+        List meals = baseDao.list(hql);
         request.setAttribute("meals",meals);
         return "admin/meal";
     }
 
     @RequestMapping("admin/listMeal.do")
     public String list(HttpServletRequest request){
-
-        Session session = new HibernateUtil().getSession();
         String hql = "from Meal";
-        Query q = session.createQuery(hql);
-        List meals = q.list();
+        List meals = baseDao.list(hql);
         request.setAttribute("meals",meals);
         return "admin/meal";
     }

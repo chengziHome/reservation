@@ -14,8 +14,6 @@
     <title></title>
 </head>
 
-<% List<Customer> customers = (List) request.getAttribute("customers");%>
-
 <body>
 
 <form action="/view/admin/addCustomer.do">

@@ -26,22 +26,20 @@ public class AdminCustomerInfoController {
     @RequestMapping("admin/addCustomer.do")
     public String add(HttpServletRequest request,Customer customer){
         baseDao.add(customer);
-        Session session = new HibernateUtil().getSession();
+
         String hql = "from Customer";
-        Query q = session.createQuery(hql);
-        List customers = q.list();
-        request.setAttribute("customers",customers);
+        List customers = baseDao.list(hql);
+        request.setAttribute("customers", customers);
         return "admin/customer";
     }
 
     @RequestMapping("admin/updateCustomer.do")
     public String update(HttpServletRequest request,Customer customer){
         baseDao.update(customer);
-        Session session = new HibernateUtil().getSession();
+
         String hql = "from Customer";
-        Query q = session.createQuery(hql);
-        List customers = q.list();
-        request.setAttribute("customers",customers);
+        List customers = baseDao.list(hql);
+        request.setAttribute("customers", customers);
         return "admin/customer";
     }
 
@@ -50,21 +48,17 @@ public class AdminCustomerInfoController {
         Customer customer = (Customer) baseDao.getById(Customer.class,id);
         baseDao.delete(customer);
 
-        Session session = new HibernateUtil().getSession();
         String hql = "from Customer";
-        Query q = session.createQuery(hql);
-        List customers = q.list();
-        request.setAttribute("customers",customers);
-
+        List customers = baseDao.list(hql);
+        request.setAttribute("customers", customers);
         return "admin/customer";
     }
 
     @RequestMapping("admin/listCustomer.do")
     public String list(HttpServletRequest request){
-        Session session = new HibernateUtil().getSession();
+
         String hql = "from Customer";
-        Query q = session.createQuery(hql);
-        List customers = q.list();
+        List customers = baseDao.list(hql);
         request.setAttribute("customers",customers);
         return "admin/customer";
     }

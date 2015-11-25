@@ -13,7 +13,6 @@
 <head>
     <title></title>
 </head>
-<% List orders = (List) request.getAttribute("orders");%>
 
 <body>
 <form action="/view/admin/addOrder.do">

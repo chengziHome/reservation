@@ -17,7 +17,7 @@
     姓名：<input type="text" name="name"/><br>
     密码：<input type="text" name="password"/><br>
     <input type="submit" value="login">
-    <a href="register.jsp">注册新用户</a>
+    <a href="register.jsp?">注册新用户</a>
   </form>
 </body>
 </html>
