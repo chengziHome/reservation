@@ -48,9 +48,6 @@ public class TestTest {
     @Test
     public void testMain() throws Exception {
 
-        Meal meal = (Meal) baseDao.getById(Meal.class,2);
-        baseDao.delete(meal);
-
     }
 
 

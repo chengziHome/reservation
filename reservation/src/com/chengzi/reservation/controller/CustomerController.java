@@ -43,31 +43,25 @@ public class CustomerController {
 
         baseDao.add(order);
 
-        Session session = new HibernateUtil().getSession();
-        String hql = " from Meal";
-        Query q = session.createQuery(hql);
-        List meals = q.list();
-        request.setAttribute("meals",meals);
-        return "customer/meal";
+        String hql = " from Order o form o.customer.id ="+customerId;
+        List orders = baseDao.list(hql);
+        request.setAttribute("orders",orders);
+        return "customer/order";
     }
 
     @RequestMapping("customer/listMeal.do")
     public String listMeal(HttpServletRequest request){
-        Session session = new HibernateUtil().getSession();
         String hql = " from Meal";
-        Query q = session.createQuery(hql);
-        List meals = q.list();
+        List meals = baseDao.list(hql);
         request.setAttribute("meals",meals);
         return "customer/meal";
     }
 
     @RequestMapping("customer/listOrder.do")
-    public String listOrder(HttpServletRequest request){
-        Session session = new HibernateUtil().getSession();
-        String hql = " from Order";
-        Query q = session.createQuery(hql);
-        List meals = q.list();
-        request.setAttribute("meals",meals);
+    public String listOrder(HttpServletRequest request,Integer customerId){
+        String hql = " from Order o where o.customer.id ="+customerId;
+        List orders = baseDao.list(hql);
+        request.setAttribute("orders",orders);
         return "customer/order";
 
     }
