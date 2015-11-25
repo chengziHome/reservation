@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.chengzi.reservation.bean.Order" table="order" schema="" catalog="reservation">
+    <class name="com.chengzi.reservation.bean.Order" table="order">
         <id name="id">
             <generator class="native"></generator>
         </id>

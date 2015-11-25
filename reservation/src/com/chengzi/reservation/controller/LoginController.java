@@ -29,7 +29,7 @@ public class LoginController{
     public String adminLogin(HttpServletRequest request,String name,String password){
 
         try {
-            String hql = "select a.password from Admin a where a.name = "+name;
+            String hql = "select a.password from Admin a where a.name = "+"'"+name+"'";
             String pw = baseDao.list(hql).get(0).toString();
             if(pw!=null&&password.equals(pw)){
                 return "admin/admin";
@@ -48,7 +48,7 @@ public class LoginController{
     public String customerLogin(HttpServletRequest request,String name,String password){
 
         try {
-            String hql = "select c.password from Customer c where c.name="+name;
+            String hql = "select c.password from Customer c where c.name="+"'"+name+"'";
             String pw = baseDao.list(hql).get(0).toString();
             if(pw!=null&&password.equals(pw)){
                 return "customer/customer";
