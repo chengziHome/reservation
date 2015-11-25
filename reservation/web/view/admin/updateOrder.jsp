@@ -10,7 +10,15 @@
 <head>
     <title></title>
 </head>
-<body>
 
+<% String id = request.getParameter("id");%>
+
+<body>
+  <form action="/view/admin/updateOrder.do">
+    订单单号：<input type="text" value="<%=id%>" name="orderId"/><br>
+    点餐顾客：<input type="text" name="customerId"/><br>
+    订餐餐品：<input type="text" name="mealId"/><br>
+    <input type="submit" value="修改订单"/>
+  </form>
 </body>
 </html>

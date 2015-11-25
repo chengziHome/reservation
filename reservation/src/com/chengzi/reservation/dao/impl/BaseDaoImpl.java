@@ -15,10 +15,9 @@ import java.util.List;
 @Repository("baseDao")
 public class BaseDaoImpl implements BaseDao {
 
-    protected Session session = new HibernateUtil().getSession();
-
     @Override
     public void add(Object obj) {
+        Session session = new HibernateUtil().getSession();
         Transaction tran = session.beginTransaction();
         try {
             session.save(obj);
@@ -33,6 +32,7 @@ public class BaseDaoImpl implements BaseDao {
 
     @Override
     public void update(Object obj) {
+        Session session = new HibernateUtil().getSession();
         Transaction tran = session.beginTransaction();
         try {
             session.update(obj);
@@ -47,6 +47,7 @@ public class BaseDaoImpl implements BaseDao {
 
     @Override
     public void delete(Object obj) {
+        Session session = new HibernateUtil().getSession();
         Transaction tran = session.beginTransaction();
         try {
             session.delete(obj);
@@ -61,6 +62,7 @@ public class BaseDaoImpl implements BaseDao {
 
     @Override
     public List list(String hql) {
+        Session session = new HibernateUtil().getSession();
         Query q = session.createQuery(hql);
         List list = null;
         try {
@@ -68,17 +70,23 @@ public class BaseDaoImpl implements BaseDao {
             return list;
         } catch (HibernateException e) {
             e.printStackTrace();
+        }finally {
+            session.close();
         }
         return null;
     }
 
     @Override
     public Object getById(Class cls, Serializable id) {
+        Session session = new HibernateUtil().getSession();
         try {
             return session.get(cls,id);
         } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            session.close();
         }
+
         return null;
     }
 }

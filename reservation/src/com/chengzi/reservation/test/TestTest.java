@@ -16,6 +16,9 @@ import org.hibernate.Session;
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 
 import java.io.FileInputStream;
@@ -27,9 +30,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+
 public class TestTest {
 
     Session session = new HibernateUtil().getSession();
+
+    private BaseDao baseDao = new BaseDaoImpl();
+
     @Before
     public void before() throws Exception {
     }
@@ -41,16 +48,9 @@ public class TestTest {
     @Test
     public void testMain() throws Exception {
 
-        String hql = "select a.password from Admin a where a.name = ?";
-        Query q = session.createQuery(hql);
-        q.setString(0,"cheng");
-        try {
-            String pw = q.list().get(0).toString();
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("exception!!");
-        }
-
+        Customer customer = (Customer) baseDao.getById(Customer.class, 1);
+        Customer customer2 = (Customer) baseDao.getById(Customer.class, 2);
+        System.out.println("customer:"+customer+"customer2:"+customer2);
 
     }
 

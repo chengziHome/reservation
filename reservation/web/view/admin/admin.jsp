@@ -17,6 +17,6 @@
 <body>
   <a href="/view/admin/listCustomer.do">用户信息管理</a><br>
   <a href="<%=path%>/view/admin/meal.jsp">菜品信息管理</a><br>
-  <a href="<%=path%>/view/admin/order.jsp">订单信息管理</a><br>
+  <a href="/view/admin/listOrder.do">订单信息管理</a><br>
 </body>
 </html>

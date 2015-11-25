@@ -25,12 +25,8 @@ public class AdminCustomerInfoController {
 
     @RequestMapping("admin/addCustomer.do")
     public String add(HttpServletRequest request,Customer customer){
-        System.out.println("访问到了");
         baseDao.add(customer);
-
-        System.out.println("new之前");
         Session session = new HibernateUtil().getSession();
-        System.out.println("new之后");
         String hql = "from Customer";
         Query q = session.createQuery(hql);
         List customers = q.list();
@@ -40,9 +36,7 @@ public class AdminCustomerInfoController {
 
     @RequestMapping("admin/updateCustomer.do")
     public String update(HttpServletRequest request,Customer customer){
-
         baseDao.update(customer);
-
         Session session = new HibernateUtil().getSession();
         String hql = "from Customer";
         Query q = session.createQuery(hql);
