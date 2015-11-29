@@ -14,7 +14,7 @@
 
 <body>
 <h3>${error}</h3>
-  <form action="/view/adminlogin.do">
+  <form action="/view/adminlogin.do" method="post">
     姓名：<input type="text" name="name"/><br>
     密码：<input type="text" name="password"/><br>
     <input type="submit" value="login">

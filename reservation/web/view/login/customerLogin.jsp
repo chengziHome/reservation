@@ -13,7 +13,7 @@
 <% String error = (String) request.getAttribute("error"); %>
 <body>
 <h2>${error}</h2>
-  <form action="/view/customerlogin.do">
+  <form action="/view/customerlogin.do" method="post">
     姓名：<input type="text" name="name"/><br>
     密码：<input type="text" name="password"/><br>
     <input type="submit" value="login">
