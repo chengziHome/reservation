@@ -14,6 +14,6 @@
   <h1>Hello: customer</h1>
 
   <a href="/view/customer/listMeal.do">点击订餐</a><br>
-  <a href="/view/customer/listOrder.do">点击查看订单</a><br>
+  <a href="/view/customer/listOrder.do?customerId=${customerId}">点击查看订单</a><br>
 </body>
 </html>

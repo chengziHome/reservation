@@ -1,6 +1,7 @@
 package com.chengzi.reservation.dao.impl;
 
 import com.chengzi.reservation.dao.CustomerDao;
+import com.chengzi.reservation.exception.BalanceException;
 import com.chengzi.reservation.util.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -29,7 +30,13 @@ public class CustomerDaoImpl implements CustomerDao {
 
     @Override
     public void updateBalance(Serializable customerId, double price) {
-        String hql = "update Customer c set c.balance=? where c.id =?";
+
+        double balance = getBalanceById(customerId);
+        if(balance<price){
+            throw new BalanceException("您的余额不足");
+        }
+
+        String hql = "update Customer c set c.balance=balance-? where c.id =?";
         Query q = session.createQuery(hql);
         q.setDouble(0,price);
         q.setInteger(1, (Integer) customerId);

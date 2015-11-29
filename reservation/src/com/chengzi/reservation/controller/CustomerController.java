@@ -26,24 +26,7 @@ public class CustomerController {
 
     @RequestMapping("customer/purchase.do")
     public String purchase(HttpServletRequest request,Integer mealId,Integer customerId){
-
-        Meal meal = (Meal) baseDao.getById(Meal.class,mealId);
-        Customer customer = (Customer) baseDao.getById(Customer.class,customerId);
-
-        Order order = new Order();
-        order.setMeal(meal);
-        order.setCustomer(customer);
-
-        Date date = new Date();
-        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
-        order.setDate(sf.format(date));
-
-        baseDao.add(order);
-
-        String hql = " from Order o form o.customer.id ="+customerId;
-        List orders = baseDao.list(hql);
-        request.setAttribute("orders",orders);
-        return "customer/order";
+        return null;
     }
 
     @RequestMapping("customer/listMeal.do")
@@ -60,7 +43,6 @@ public class CustomerController {
         List orders = baseDao.list(hql);
         request.setAttribute("orders",orders);
         return "customer/order";
-
     }
 
 }
