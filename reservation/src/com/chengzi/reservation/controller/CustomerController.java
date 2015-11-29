@@ -1,12 +1,9 @@
 package com.chengzi.reservation.controller;
 
+import com.chengzi.reservation.bean.Order;
 import com.chengzi.reservation.bean.Customer;
 import com.chengzi.reservation.bean.Meal;
-import com.chengzi.reservation.bean.Order;
 import com.chengzi.reservation.dao.BaseDao;
-import com.chengzi.reservation.util.HibernateUtil;
-import org.hibernate.Query;
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

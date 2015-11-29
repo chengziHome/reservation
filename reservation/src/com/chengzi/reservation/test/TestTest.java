@@ -1,34 +1,13 @@
 package com.chengzi.reservation.test;
 
-import com.chengzi.reservation.bean.Admin;
-import com.chengzi.reservation.bean.Customer;
-import com.chengzi.reservation.bean.Meal;
 import com.chengzi.reservation.bean.Order;
 import com.chengzi.reservation.dao.BaseDao;
-import com.chengzi.reservation.dao.MealDao;
 import com.chengzi.reservation.dao.impl.BaseDaoImpl;
-import com.chengzi.reservation.dao.impl.MealDaoImpl;
 import com.chengzi.reservation.util.HibernateUtil;
-import org.hibernate.HibernateException;
-import org.hibernate.LobHelper;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.sql.Blob;
-import java.sql.Clob;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
 
 
 public class TestTest {
@@ -47,7 +26,21 @@ public class TestTest {
 
     @Test
     public void testMain() throws Exception {
+//        String hql = "from Order";
+//        List orders = baseDao.list(hql);
+//        System.out.println(orders==null);
+//        Order order = (Order) baseDao.getById(Order.class,1);
+//        Meal meal = (Meal) baseDao.getById(Meal.class,1);
+//        System.out.println(meal==null);
+//        System.out.println(meal);
+//
+//        Customer c = (Customer) baseDao.getById(Customer.class,1);
+//        System.out.println(c==null);
+//        System.out.println(c);
 
+        Order order = (Order) baseDao.getById(Order.class,1);
+        System.out.println(order ==null);
+        System.out.println(order);
     }
 
 
