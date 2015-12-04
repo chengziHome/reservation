@@ -1,8 +1,13 @@
 package com.chengzi.reservation.test;
 
-import com.chengzi.reservation.bean.Order;
 import com.chengzi.reservation.dao.BaseDao;
+import com.chengzi.reservation.dao.CustomerDao;
+import com.chengzi.reservation.dao.MealDao;
 import com.chengzi.reservation.dao.impl.BaseDaoImpl;
+import com.chengzi.reservation.dao.impl.CustomerDaoImpl;
+import com.chengzi.reservation.dao.impl.MealDaoImpl;
+import com.chengzi.reservation.service.CustomerService;
+import com.chengzi.reservation.service.impl.CustomerServiceImpl;
 import com.chengzi.reservation.util.HibernateUtil;
 import org.hibernate.Session;
 import org.junit.Test;
@@ -16,6 +21,16 @@ public class TestTest {
 
     private BaseDao baseDao = new BaseDaoImpl();
 
+    private CustomerService customerService = new CustomerServiceImpl();
+
+    private CustomerDao customerDao = new CustomerDaoImpl();
+
+    private MealDao mealDao = new MealDaoImpl();
+
+
+    public TestTest() {
+    }
+
     @Before
     public void before() throws Exception {
     }
@@ -26,21 +41,9 @@ public class TestTest {
 
     @Test
     public void testMain() throws Exception {
-//        String hql = "from Order";
-//        List orders = baseDao.list(hql);
-//        System.out.println(orders==null);
-//        Order order = (Order) baseDao.getById(Order.class,1);
-//        Meal meal = (Meal) baseDao.getById(Meal.class,1);
-//        System.out.println(meal==null);
-//        System.out.println(meal);
-//
-//        Customer c = (Customer) baseDao.getById(Customer.class,1);
-//        System.out.println(c==null);
-//        System.out.println(c);
 
-        Order order = (Order) baseDao.getById(Order.class,1);
-        System.out.println(order ==null);
-        System.out.println(order);
+        customerService.purchase(1,1);
+
     }
 
 

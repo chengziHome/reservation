@@ -13,7 +13,6 @@
 <head>
     <title></title>
 </head>
-
 <body>
 
 <a href="order.jsp">查看订单</a>
@@ -23,7 +22,7 @@
   ${meal.name}
   ${meal.price}
   ${meal.stock}
-  <a href="/view/customer/purchase.do">点击选购</a>
+  <a href="/view/customer/purchase.do?customerId=${customerId}&mealId=${meal.id}">点击选购</a>
   <br>
 </c:forEach>
 </body>
